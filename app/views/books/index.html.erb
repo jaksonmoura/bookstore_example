@@ -1,0 +1,34 @@
+<%- model_class = Book -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<div class="books">
+  <% @books.each do |book| %>
+    <div class="book">
+      <div class="cover">
+        <%= image_tag('cover.jpg') %>
+      </div>
+      <div class="description">
+        <h4 class="title"><%= link_to book.title, book_path(book) %></h4>
+        <h5 class="edition"><%= book.edition %> edition</h5>
+        <p class="summary"><%= truncate(book.summary, length: 340) %></p>
+        <div class="info">
+          <span>Released <%= book.released_at %></span>
+          <span>ISBN <%= book.isnb %></span>
+          <span><%= book.pages %> pages</span>
+        </div>
+        <div class="actions">
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_book_path(book), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      book_path(book),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+<%= link_to ' New book', new_book_path, :class => 'btn btn-primary' %>

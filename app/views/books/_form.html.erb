@@ -1,0 +1,44 @@
+<%= form_for @book, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :title, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :title, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :summary, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :summary, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :released_at, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :released_at, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :edition, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :edition, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :isnb, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :isnb, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :pages, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :pages, :class => 'text_field' %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                books_path, :class => 'btn' %>
+  </div>
+<% end %>
