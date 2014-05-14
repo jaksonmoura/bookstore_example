@@ -35,3 +35,19 @@
     margin: 0;
   }
  }
+
+
+ form{
+
+  input[type='text']{
+    padding: 15px 5px;
+  }
+  .author_ids{
+      max-height: 85px;
+      overflow-y: scroll;
+      input[type='checkbox']{
+        float: left;
+        margin-right: 5px;
+      }
+    }
+ }

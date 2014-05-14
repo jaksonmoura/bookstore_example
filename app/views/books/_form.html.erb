@@ -8,7 +8,7 @@
   <div class="control-group">
     <%= f.label :summary, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :summary, :class => 'text_field' %>
+      <%= f.text_area :summary, :class => 'text_area', rows: 5 %>
     </div>
   </div>
   <div class="control-group">
@@ -33,6 +33,13 @@
     <%= f.label :pages, :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :pages, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :authors_ids, :class => 'control-label' %>
+    <div class="controls author_ids">
+        <%= f.collection_check_boxes :author_ids, Author.all, :id, :name %>
+      </span>
     </div>
   </div>
 
