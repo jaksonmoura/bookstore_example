@@ -35,4 +35,12 @@ ActiveRecord::Schema.define(version: 20140514025713) do
     t.datetime "updated_at"
   end
 
+  create_table "books_authors", force: true do |t|
+    t.integer "book_id"
+    t.integer "author_id"
+  end
+
+  add_index "books_authors", ["author_id"], name: "index_books_authors_on_author_id"
+  add_index "books_authors", ["book_id"], name: "index_books_authors_on_book_id"
+
 end

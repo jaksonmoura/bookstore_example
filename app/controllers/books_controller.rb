@@ -5,7 +5,7 @@ class BooksController < ApplicationController
   # GET /books.json
   def index
     @books = Book.search(params)
-    @authors = Author.all
+    # @books = Book.all.includes(:authors)
   end
 
   # GET /books/1
@@ -72,6 +72,5 @@ class BooksController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def book_params
       params.require(:book).permit(:title, :summary, :released_at, :edition, :isnb, :pages, :author_ids => [])
-      # , authors_attrs: [:ids]
     end
 end

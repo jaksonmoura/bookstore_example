@@ -9,10 +9,11 @@
         <%= image_tag('cover.jpg') %>
       </div>
       <div class="description">
-        <h4 class="title"><%= link_to book.title, book_path(book) %></h4>
+        <h4 class="title"><%= link_to book.title, book_path(book.id) %></h4>
         <h5 class="edition"><%= book.edition %> edition</h5>
         <p class="summary"><%= truncate(book.summary, length: 340) %></p>
         <div class="info">
+          <span>By <%= book.authors.map { |a| link_to a.name, author_path(a.id) }.join(', ').html_safe %></span>
           <span>Released <%= book.released_at %></span>
           <span>ISBN <%= book.isnb %></span>
           <span><%= book.pages %> pages</span>
